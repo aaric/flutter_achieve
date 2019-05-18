@@ -4,7 +4,7 @@ void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
-  var appName = '仿微信聊天示例';
+  var appName = '仿微信聊天';
 
   @override
   Widget build(BuildContext context) {

@@ -8,7 +8,7 @@
          FlutterApplication and put your custom class here. -->
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="App学习示例"
+        android:label="仿微信聊天"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

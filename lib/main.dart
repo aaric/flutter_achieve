@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+import './app.dart';
+import './loading.dart';
 
 void main() => runApp(MyApp());
 
@@ -12,33 +15,20 @@ class MyApp extends StatelessWidget {
       title: appName,
       theme: ThemeData(
         // This is the theme of your application.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
       ),
-      home: MyHomePage(title: appName),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Text('${widget.title}'),
-      ),
+      routes: <String, WidgetBuilder> {
+        '/app': (BuildContext context) => AppPage(title: appName),
+        '/links': (_) => WebviewScaffold(
+          url: 'https://www.so.com/',
+          appBar: AppBar(
+            title: Text('360搜索'),
+          ),
+          withZoom: true,
+          withLocalStorage: true,
+        ),
+      },
+      home: LoadingPage(),
     );
   }
 }

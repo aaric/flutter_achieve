@@ -19,7 +19,7 @@ class _LoadingPageState extends State<StatefulWidget> {
     // Skip to app page
     Future.delayed(Duration(seconds: 3), () {
       print('Skip to app page...');
-      Navigator.of(context).popAndPushNamed('/app');
+      Navigator.of(context).pushReplacementNamed('/app');
     });
   }
   
@@ -29,7 +29,7 @@ class _LoadingPageState extends State<StatefulWidget> {
       body: Center(
         child: Stack(
           children: <Widget>[
-            Image.asset('assets/images/default_qrcode.png')
+            Image.asset('assets/images/default_avatar.png')
           ],
         ),
       ),

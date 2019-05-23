@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
-import './app.dart';
-import './loading.dart';
+import './app_page.dart';
+import './loading_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         // This is the theme of your application.
         primarySwatch: Colors.green,
+        scaffoldBackgroundColor: Colors.white,
       ),
       routes: <String, WidgetBuilder> {
         '/app': (BuildContext context) => AppPage(title: appName),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+import './i18n/app_i18n.dart';
 import './app_page.dart';
 import './loading_page.dart';
 
@@ -11,7 +13,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: '仿微信聊天',
+      //title: '仿微信聊天',
+      onGenerateTitle: (context) {
+        return ApplicationLocalizations.of(context).textAppTitle;
+      },
       theme: ThemeData(
         // This is the theme of your application.
         primarySwatch: Colors.green,
@@ -29,6 +34,15 @@ class MyApp extends StatelessWidget {
         ),
       },
       home: LoadingPage(),
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        ApplicationLocalizationsDelegate.delegate,
+      ],
+      supportedLocales: [
+        const Locale('zh', 'CN'),
+        const Locale('en', 'US'),
+      ],
     );
   }
 }

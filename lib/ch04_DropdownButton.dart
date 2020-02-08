@@ -23,16 +23,33 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  var currentCity;
+  var cities = [
+    DropdownMenuItem(child: Text('北京'), value: 'beijing'),
+    DropdownMenuItem(child: Text('上海'), value: 'shanghai'),
+    DropdownMenuItem(child: Text('广州'), value: 'guangzhou'),
+    DropdownMenuItem(child: Text('深圳'), value: 'shenzhen'),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Flutter Widget'),
+          title: Text('ch04-DropdownButton'),
         ),
         body: Column(
           children: <Widget>[
-            Text('Hello World')
+            DropdownButton(
+              hint: Text('请选择城市'),
+              value: currentCity,
+              items: cities,
+              onChanged: (val) {
+                print(val + ' seleced');
+                setState(() {
+                  this.currentCity = val;
+                });
+              },
+            )
           ],
         )
     );

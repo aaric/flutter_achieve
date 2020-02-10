@@ -28,13 +28,27 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Flutter Widget'),
+        title: Text('ch12-BoxConstraints'),
       ),
-      body: Column(
-        children: <Widget>[
-          Text('Hello World')
-        ],
-      )
+      /* body: SizedBox(
+        width: 200,
+        height: 200,
+        child: Container(
+          color: Colors.red,
+        ),
+      ), */
+      body: ConstrainedBox(
+        constraints: BoxConstraints(
+          //minHeight: double.infinity,
+          maxWidth: 400,
+          maxHeight: 400,
+        ),
+        child: Container(
+          width: 500,
+          height: 300,
+          color: Colors.red,
+        ),
+      ),
     );
   }
 }

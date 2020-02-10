@@ -27,28 +27,22 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('ch12-BoxConstraints'),
-      ),
-      /* body: SizedBox(
-        width: 200,
-        height: 200,
-        child: Container(
+        appBar: AppBar(
+          title: Text('ch11-Padding'),
+        ),
+        body: Container(
+          width: 400,
+          height: 400,
           color: Colors.red,
-        ),
-      ), */
-      body: ConstrainedBox(
-        constraints: BoxConstraints(
-          //minHeight: double.infinity,
-          maxWidth: 400,
-          maxHeight: 400,
-        ),
-        child: Container(
-          width: 500,
-          height: 300,
-          color: Colors.red,
-        ),
-      ),
+          child: Padding(
+            //padding: EdgeInsets.all(10),
+            //padding: EdgeInsets.fromLTRB(10, 20, 30, 40),
+            padding: EdgeInsets.only(top: 50),
+            child: Container(
+              color: Colors.blue,
+            ),
+          ),
+        )
     );
   }
 }

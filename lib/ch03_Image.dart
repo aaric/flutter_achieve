@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './my_font.dart';
+import 'my_font.dart';
 
 void main() => runApp(MyApp());
 

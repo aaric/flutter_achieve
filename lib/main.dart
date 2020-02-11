@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'my_font.dart';
 
 void main() => runApp(MyApp());
 
@@ -27,14 +28,38 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Flutter Widget'),
-      ),
-      body: Column(
-        children: <Widget>[
-          Text('Hello World')
-        ],
-      )
+        appBar: AppBar(
+          title: Text('ch17-Scaffold'),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(MyFont.huawei),
+              onPressed: () {
+                print('huawei');
+              },
+            )
+          ],
+        ),
+        body: Column(
+          children: <Widget>[
+            Text('Hello World')
+          ],
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.local_airport),
+              title: Text('airplane')
+            ),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.train),
+                title: Text('train')
+            ),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.directions_bus),
+                title: Text('bus')
+            ),
+          ],
+        ),
     );
   }
 }

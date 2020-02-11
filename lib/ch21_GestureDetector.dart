@@ -48,12 +48,12 @@ class _MyHomePageState extends State<MyHomePage> {
           onHorizontalDragStart: (e) {
             print('horizontal drag');
           },
-          onVerticalDragStart: (e) {
+          /*onVerticalDragStart: (e) {
             print('vertical drag');
-          },
-          /*onScaleUpdate: (e) {
-            print('scale');
           },*/
+          onScaleUpdate: (e) { //onScaleUpdate与onVerticalDragStart互斥
+            print('scale');
+          },
         )
     );
   }

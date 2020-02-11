@@ -41,16 +41,15 @@ class _MyHomePageState extends State<MyHomePage> {
       ), */
       /* body: Column(
         children: <Widget>[
-          ListTile(
-            title: Text('List')
-          ),
           Container(
             height: 400,
             child: ListView.builder(
               itemCount: 50,
               itemExtent: 50, //强制指定子控件高度范围
               itemBuilder: (context, index) {
-                return Text('hello world');
+                return ListTile(
+                  title: Text('hello world')
+                );
               }
             )
           )

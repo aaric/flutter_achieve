@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'my_font.dart';
-import 'pages/airplane_page.dart';
-import 'pages/train_page.dart';
-import 'pages/bus_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -27,58 +23,18 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  var _currentIndex = 0;
-  var _pageList = [
-    BusPage(),
-    TrainPage(),
-    AirplanePage()
-  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('ch17-Scaffold'),
-          actions: <Widget>[
-            IconButton(
-              icon: Icon(MyFont.huawei),
-              onPressed: () {
-                print('huawei');
-              },
-            )
+          title: Text('Flutter Widget'),
+        ),
+        body: Column(
+          children: <Widget>[
+            Text('Hello World')
           ],
-        ),
-        body: _pageList[_currentIndex],
-        bottomNavigationBar: BottomNavigationBar(
-          items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-                icon: Icon(Icons.directions_bus),
-                title: Text('bus')
-            ),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.train),
-                title: Text('train')
-            ),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.local_airport),
-                title: Text('airplane')
-            ),
-          ],
-          currentIndex: _currentIndex,
-          onTap: (val) {
-            setState(() {
-              _currentIndex = val;
-            });
-          },
-        ),
-      floatingActionButton: FloatingActionButton(
-        child: IconButton(
-          icon: Icon(Icons.add),
-          onPressed: () {
-            print('FloatingActionButton clicked');
-          },
-        ),
-      ),
+        )
     );
   }
 }

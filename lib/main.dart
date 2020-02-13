@@ -28,13 +28,47 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Flutter Widget'),
+          title: Text('ch23-Navigator'),
         ),
         body: Column(
           children: <Widget>[
-            Text('Hello World')
+            RaisedButton(
+              child: Text('Go to HelloPage'),
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(
+                  builder: (context) => HelloPage()
+                ));
+              },
+            )
           ],
         )
     );
   }
 }
+
+class HelloPage extends StatefulWidget {
+  @override
+  _HelloPageState createState() => _HelloPageState();
+}
+
+class _HelloPageState extends State<HelloPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('HelloPage'),
+      ),
+      body: Column(
+        children: <Widget>[
+          RaisedButton(
+            child: Text('Go back'),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          )
+        ]
+      )
+    );
+  }
+}
+

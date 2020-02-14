@@ -72,12 +72,11 @@ class _MyHomePageState extends State<MyHomePage> {
           },
         ),
       floatingActionButton: FloatingActionButton(
-        child: IconButton(
-          icon: Icon(Icons.add),
-          onPressed: () {
-            print('FloatingActionButton clicked');
-          },
-        ),
+        child: Icon(Icons.add),
+        tooltip: 'add',
+        onPressed: () {
+          print('FloatingActionButton clicked');
+        },
       ),
     );
   }

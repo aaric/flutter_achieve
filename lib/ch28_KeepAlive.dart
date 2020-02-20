@@ -94,4 +94,3 @@ class _VehiclePageState extends State<VehiclePage> with AutomaticKeepAliveClient
   @override
   bool get wantKeepAlive => true;
 }
-

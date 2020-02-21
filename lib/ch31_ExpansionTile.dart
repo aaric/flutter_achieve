@@ -22,11 +22,23 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Title'),
+        title: Text('ch31-ExpansionTile'),
       ),
-      body: Container(
-        child: Text('hello world'),
-      )
+      body: Center(
+        child: ExpansionTile(
+          backgroundColor: Colors.white12,
+          title: Text('Notification'),
+          leading: Icon(Icons.notifications_active),
+          initiallyExpanded: true,
+          children: <Widget>[
+            ListTile(
+              title: Text('Title'),
+              subtitle: Text('Sub Title'),
+            )
+          ],
+        ),
+      ),
     );
   }
 }
+

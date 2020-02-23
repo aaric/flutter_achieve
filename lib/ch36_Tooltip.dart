@@ -22,10 +22,13 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Title'),
+        title: Text('ch36-Tooltip'),
       ),
       body: Center(
-        child: Text('hello world'),
+        child: Tooltip(
+          child: Icon(Icons.message),
+          message: 'long click show',
+        ),
       ),
     );
   }

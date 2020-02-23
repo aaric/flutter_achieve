@@ -24,9 +24,9 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text('Title'),
       ),
-      body: Container(
+      body: Center(
         child: Text('hello world'),
-      )
+      ),
     );
   }
 }

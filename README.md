@@ -15,7 +15,7 @@
 
 ### 1.1 Flutter 社区
 
-社区主镜像，采用多种方式同步 Flutter 开发者资源（推荐）。有任何镜像相关的问题，请与我们[反馈镜像问题](https://github.com/cfug/flutter.cn/issues)，中国镜像存储由 [七牛云](https://sensors.qiniu.com/t/n9Q) 提供服务。
+> 社区主镜像，采用多种方式同步 Flutter 开发者资源（推荐）。有任何镜像相关的问题，请与我们[反馈镜像问题](https://github.com/cfug/flutter.cn/issues)，中国镜像存储由[七牛云](https://sensors.qiniu.com/t/n9Q)提供服务。
 
 ```powershell
 $env:PUB_HOSTED_URL="https://pub.flutter-io.cn"
@@ -24,7 +24,7 @@ $env:FLUTTER_STORAGE_BASE_URL="https://storage.flutter-io.cn"
 
 ### 1.2 CNNIC
 
-基于 TUNA 协会的镜像服务，数据策略和内容与 TUNA 一致，通过非教育网的域名访问（建议选择 TUNA）。暂无反馈渠道，可尝试 TUNA 反馈渠道。
+> 基于 TUNA 协会的镜像服务，数据策略和内容与 TUNA 一致，通过非教育网的域名访问（建议选择 TUNA）。暂无反馈渠道，可尝试 TUNA 反馈渠道。
 
 ```powershell
 $env:PUB_HOSTED_URL="http://mirrors.cnnic.cn/dart-pub"

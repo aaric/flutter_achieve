@@ -67,6 +67,7 @@ org.gradle.java.home=D\:\\DevTools\\jdk-17.0.2
 
 ```powershell
 flutter config --enable-windows-desktop
+start ms-settings:developers
 ```
 
 ### 3.2 MacOS桌面

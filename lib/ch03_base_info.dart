@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:io';
+import 'dart:convert';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -20,7 +21,8 @@ class DemoPage extends StatefulWidget {
 }
 
 class _DemoPageState extends State<DemoPage> {
-  var _myText = 'hello world';
+  var _osText = 'unknown';
+  var _ipText = 'unknown';
 
   @override
   Widget build(BuildContext context) {
@@ -32,15 +34,21 @@ class _DemoPageState extends State<DemoPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('$_myText')
+                    Text('os: $_osText')
                   ]
+                ),
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('ip: $_ipText')
+                    ]
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ElevatedButton(
                         onPressed: _onPressed,
-                        child: Text('check os')
+                        child: Text('check')
                     )
                   ]
                 )
@@ -50,15 +58,32 @@ class _DemoPageState extends State<DemoPage> {
     );
   }
 
-  void _onPressed() {
-    var myText = 'unknown';
+  void _onPressed() async {
+    var osText = 'unknown';
     if (Platform.isAndroid) {
-      myText = 'android';
+      osText = 'android';
     } else if (Platform.isWindows) {
-      myText = 'windows';
+      osText = 'windows';
     }
+
+    var ipV4Text = '';
+    var ipV6Text = '';
+    for (var interface in await NetworkInterface.list()) {
+      for (var addr in interface.addresses) {
+        switch (addr.type) {
+          case InternetAddressType.IPv4:
+            ipV4Text = addr.address;
+            break;
+          case InternetAddressType.IPv6:
+            ipV6Text = addr.address;
+            break;
+        }
+      }
+    }
+
     setState(() {
-      _myText = myText;
+      _osText = osText;
+      _ipText = '$ipV4Text | $ipV6Text';
     });
   }
 }

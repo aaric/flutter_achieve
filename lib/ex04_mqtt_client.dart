@@ -28,32 +28,27 @@ class _DemoState extends State<DemoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-      /*Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-        Flexible(
-            child: TextField(
-                keyboardType: TextInputType.text,
-                decoration: const InputDecoration(labelText: 'Input'),
-                onChanged: (content) => print(content)))
-      ]),*/
-      Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [Text('$stateText')]),
-      Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-        ElevatedButton(onPressed: _connect, child: const Text('连接'))
-      ]),
-      Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-        ElevatedButton(onPressed: _subscribe, child: const Text('订阅'))
-      ]),
-      Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-        ElevatedButton(onPressed: _publish, child: const Text('发布'))
-      ]),
-      Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-        ElevatedButton(onPressed: _unsubscribe, child: const Text('取消订阅'))
-      ]),
-      Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-        ElevatedButton(onPressed: _disconnect, child: const Text('断开连接'))
-      ])
+        body: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [Text('$stateText')]),
+              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                ElevatedButton(onPressed: _connect, child: const Text('connect'))
+              ]),
+              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                ElevatedButton(onPressed: _subscribe, child: const Text('subscribe'))
+              ]),
+              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                ElevatedButton(onPressed: _publish, child: const Text('publish'))
+              ]),
+              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                ElevatedButton(onPressed: _unsubscribe, child: const Text('unsubscribe'))
+              ]),
+              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                ElevatedButton(onPressed: _disconnect, child: const Text('disconnect'))
+          ])
     ]));
   }
 
@@ -71,8 +66,8 @@ class _DemoState extends State<DemoPage> {
     final connMsg = MqttConnectMessage()
         // .authenticateAs('username', 'password')
         // .keepAliveFor(60)
-        .withWillTopic('willTopic')
-        .withWillMessage('willMessage')
+        .withWillTopic(_pubTopic)
+        .withWillMessage('{"state": "dead"}')
         .startClean()
         .withWillQos(MqttQos.exactlyOnce);
     client.connectionMessage = connMsg;
@@ -80,15 +75,14 @@ class _DemoState extends State<DemoPage> {
     try {
       await client.connect();
     } catch (e) {
-      print('connect exception: $e');
+      updateStateText('connect exception: $e');
       client.disconnect();
     }
 
     client.updates?.listen((event) {
       final msg = event[0].payload as MqttPublishMessage;
-      final payload =
-          MqttPublishPayload.bytesToStringAsString(msg.payload.message);
-      print('received msg: $payload from topic: ${event[0].topic}');
+      final payload = MqttPublishPayload.bytesToStringAsString(msg.payload.message);
+      updateStateText('received msg: $payload from topic: ${event[0].topic}');
     });
 
     _client = client;
@@ -105,21 +99,21 @@ class _DemoState extends State<DemoPage> {
 
   void _subscribe() async {
     _client?.subscribe(_subTopic, MqttQos.exactlyOnce);
-    print('$_subTopic subscribed');
+    updateStateText('$_subTopic subscribed');
   }
 
   void _publish() async {
-    const pubMsg = 'hello world';
+    const pubMsg = '{"msg": "hello flutter"}';
     final payloadBuilder = MqttClientPayloadBuilder();
     payloadBuilder.addUTF8String(pubMsg);
     _client?.publishMessage(
         _pubTopic, MqttQos.exactlyOnce, payloadBuilder.payload!);
-    print('$pubMsg published to $_pubTopic');
+    updateStateText('$pubMsg published to $_pubTopic');
   }
 
   void _unsubscribe() async {
     _client?.unsubscribe(_subTopic);
-    print('$_subTopic unsubscribed');
+    updateStateText('$_subTopic unsubscribed');
   }
 
   void _disconnect() async {

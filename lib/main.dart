@@ -1,11 +1,27 @@
 import 'package:flutter/material.dart';
-// import 'ch01_hello_word.dart';
+import 'ch01_hello_word.dart';
 // import 'ch02_base_image.dart';
+// import 'ch03_base_info.dart';
 // import 'ex01_css_colors.dart';
 // import 'ex03_url_launcher.dart';
 // import 'ex04_mqtt_client.dart';
-import 'ch03_base_info.dart';
+// import 'ex05_device_info_plus.dart';
 
 void main() {
   runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const DemoPage(title: 'Flutter Demo Home Page'),
+    );
+  }
 }

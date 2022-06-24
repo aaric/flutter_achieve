@@ -99,7 +99,7 @@ class _DemoPageState extends State<DemoPage> {
   }
 
   void _publish() async {
-    const pubMsg = '{"msg": "hello flutter"}';
+    const pubMsg = '{"msg": "hello mqtt"}';
     final payloadBuilder = MqttClientPayloadBuilder();
     payloadBuilder.addUTF8String(pubMsg);
     _client?.publishMessage(

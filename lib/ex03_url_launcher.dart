@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_applet/ex04_mqtt_client.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class DemoPage extends StatefulWidget {
@@ -15,6 +14,7 @@ class _DemoPageState extends State<DemoPage> {
 
   @override
   Widget build(BuildContext context) {
+    // https://pub.dev/packages/url_launcher
     return Scaffold(
         appBar: AppBar(
           title: Text(widget.title),

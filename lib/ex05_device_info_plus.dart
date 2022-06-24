@@ -1,21 +1,12 @@
 import 'package:flutter/material.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(home: DemoPage());
-  }
-}
-
 class DemoPage extends StatefulWidget {
-  const DemoPage({super.key});
+  const DemoPage({super.key, required this.title});
+
+  final String title;
 
   @override
-  State<StatefulWidget> createState() {
-    return _DemoPageState();
-  }
+  State<StatefulWidget> createState() => _DemoPageState();
 }
 
 class _DemoPageState extends State<DemoPage> {
@@ -23,10 +14,14 @@ class _DemoPageState extends State<DemoPage> {
 
   @override
   Widget build(BuildContext context) {
+    // https://pub.dev/packages/device_info_plus
     return Scaffold(
-      body: Center(
-        child: Text('$_myText')
-      )
-    );
+        appBar: AppBar(
+          title: Text(widget.title),
+        ),
+        body: Center(
+          child: Text('$_myText')
+        )
+      );
   }
 }

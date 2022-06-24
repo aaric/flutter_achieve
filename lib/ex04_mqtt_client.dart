@@ -2,23 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:mqtt_client/mqtt_client.dart';
 import 'package:mqtt_client/mqtt_server_client.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(home: DemoPage());
-  }
-}
-
 class DemoPage extends StatefulWidget {
-  const DemoPage({super.key});
+  const DemoPage({super.key, required this.title});
+
+  final String title;
 
   @override
-  State<StatefulWidget> createState() => _DemoState();
+  State<StatefulWidget> createState() => _DemoPageState();
 }
 
-class _DemoState extends State<DemoPage> {
+class _DemoPageState extends State<DemoPage> {
   final _subTopic = '/msg/client/2';
   final _pubTopic = '/msg/server/default';
   MqttServerClient? _client;
@@ -28,6 +21,9 @@ class _DemoState extends State<DemoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          title: Text(widget.title),
+        ),
         body: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

@@ -72,7 +72,7 @@ $env:FLUTTER_STORAGE_BASE_URL = https://storage.flutter-io.cn
 $env:FLUTTER_HOME = D:\DevTools\flutter
 $env:DART_HOME = %FLUTTER_HOME%\bin\cache\dart-sdk
 $env:JAVA_HOME = D:\DevTools\jdk-17.0.2
-$env:GRADLE_HOME = D:\DevTools\gradle-7.2
+$env:GRADLE_HOME = D:\DevTools\gradle-7.4
 
 $env:Path += ;"%ANDROID_HOME%\platform-tools"
 $env:Path += ;"%FLUTTER_HOME%\bin"

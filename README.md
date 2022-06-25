@@ -55,7 +55,7 @@ flutter doctor --android-licenses
 
 ### 2.3 \[✗\] You need Java 11 or higher to build your app with this version of Gradle.
 
-**<project\_dir>\\android\\gradle.properties**
+**`<project_dir>\\android\\gradle.properties`**
 
 ```properties
 org.gradle.java.home=D\:\\DevTools\\jdk-17.0.2
@@ -63,21 +63,36 @@ org.gradle.java.home=D\:\\DevTools\\jdk-17.0.2
 
 ## 3 开启支持
 
-### 3.1 Windows桌面
+### 3.1 OS环境变量
 
 ```powershell
+$env:ANDROID_HOME=G:\DevTools\sdk
+$env:PUB_HOSTED_URL=https://pub.flutter-io.cn
+$env:FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
+$env:FLUTTER_HOME=G:\DevTools\flutter
+$env:DART_HOME=%FLUTTER_HOME%\bin\cache\dart-sdk
+$env:JAVA_HOME=G:\DevTools\jdk-17.0.2
+$env:GRADLE_HOME=G:\DevTools\gradle-7.2
+
+$env:Path += ;"%ANDROID_HOME%\platform-tools"
+$env:Path += ;"%FLUTTER_HOME%\bin"
+$env:Path += ;"%DART_HOME%\bin"
+$env:Path += ;"%JAVA_HOME%\bin"
+$env:Path += ;"%GRADLE_HOME%\bin"
+
+ls $env:
+```
+
+### 3.2 Flutter终端
+
+```powershell
+# windows
 flutter config --enable-windows-desktop
 start ms-settings:developers
-```
 
-### 3.2 MacOS桌面
-
-```bash
+# macos
 flutter config --enable-macos-desktop
-```
 
-### 3.3 Linux桌面
-
-```bash
+# linux
 flutter config --enable-linux-desktop
 ```

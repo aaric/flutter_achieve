@@ -66,13 +66,13 @@ org.gradle.java.home=D\:\\DevTools\\jdk-17.0.2
 ### 3.1 OS环境变量
 
 ```powershell
-$env:ANDROID_HOME=G:\DevTools\sdk
-$env:PUB_HOSTED_URL=https://pub.flutter-io.cn
-$env:FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
-$env:FLUTTER_HOME=G:\DevTools\flutter
-$env:DART_HOME=%FLUTTER_HOME%\bin\cache\dart-sdk
-$env:JAVA_HOME=G:\DevTools\jdk-17.0.2
-$env:GRADLE_HOME=G:\DevTools\gradle-7.2
+$env:ANDROID_HOME = D:\DevTools\sdk
+$env:PUB_HOSTED_URL = https://pub.flutter-io.cn
+$env:FLUTTER_STORAGE_BASE_URL = https://storage.flutter-io.cn
+$env:FLUTTER_HOME = D:\DevTools\flutter
+$env:DART_HOME = %FLUTTER_HOME%\bin\cache\dart-sdk
+$env:JAVA_HOME = D:\DevTools\jdk-17.0.2
+$env:GRADLE_HOME = D:\DevTools\gradle-7.2
 
 $env:Path += ;"%ANDROID_HOME%\platform-tools"
 $env:Path += ;"%FLUTTER_HOME%\bin"

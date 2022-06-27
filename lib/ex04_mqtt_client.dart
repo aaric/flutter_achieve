@@ -102,6 +102,7 @@ class _DemoPageState extends State<DemoPage> {
     setState(() {
       stateText = text;
     });
+    print('$text');
   }
 
   void _reconnect() async {
@@ -123,7 +124,7 @@ class _DemoPageState extends State<DemoPage> {
     final payloadBuilder = MqttClientPayloadBuilder();
     payloadBuilder.addUTF8String(pubMsg);
     _client?.publishMessage(
-        _pubTopic, MqttQos.exactlyOnce, payloadBuilder.payload!);
+        _pubTopic, MqttQos.exactlyOnce, payloadBuilder.payload!, retain: true);
     updateStateText('$pubMsg published to $_pubTopic');
   }
 

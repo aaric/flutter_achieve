@@ -32,7 +32,7 @@ class _DemoPageState extends State<DemoPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [Text('$stateText')]),
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                ElevatedButton(onPressed: _connect, child: const Text('connect'))
+                ElevatedButton(onPressed: _reconnect, child: const Text('reconnect'))
               ]),
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 ElevatedButton(onPressed: _subscribe, child: const Text('subscribe'))
@@ -47,6 +47,15 @@ class _DemoPageState extends State<DemoPage> {
                 ElevatedButton(onPressed: _disconnect, child: const Text('disconnect'))
           ])
     ]));
+  }
+
+  @override
+  void initState() {
+    initStateAsync();
+  }
+
+  void initStateAsync() async {
+    _client = await _connect();
   }
 
   Future<MqttServerClient> _connect() async {
@@ -68,6 +77,7 @@ class _DemoPageState extends State<DemoPage> {
         .startClean()
         .withWillQos(MqttQos.exactlyOnce);
     client.connectionMessage = connMsg;
+    client.keepAlivePeriod = 60;
 
     try {
       await client.connect();
@@ -82,7 +92,7 @@ class _DemoPageState extends State<DemoPage> {
       updateStateText('received msg: $payload from topic: ${event[0].topic}');
     });
 
-    _client = client;
+    // _client = client;
     updateStateText('connected');
 
     return client;
@@ -92,6 +102,15 @@ class _DemoPageState extends State<DemoPage> {
     setState(() {
       stateText = text;
     });
+  }
+
+  void _reconnect() async {
+    if (MqttConnectionState.connected != _client?.connectionStatus?.state) {
+      _client = await _connect();
+      updateStateText('reconnected');
+    } else {
+      print('reconnected not must');
+    }
   }
 
   void _subscribe() async {

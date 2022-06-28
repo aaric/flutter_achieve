@@ -17,6 +17,7 @@ dependencies:
   url_launcher: ^6.1.4
   mqtt_client: ^9.6.8
   device_info_plus: ^4.0.0
+  wakelock: ^0.6.1+2
 
 dev_dependencies:
   flutter_test:

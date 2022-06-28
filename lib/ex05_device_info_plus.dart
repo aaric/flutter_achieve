@@ -40,7 +40,7 @@ class _DemoPageState extends State<DemoPage> {
     // https://pub.dev/packages/device_info_plus
     return Scaffold(
         appBar: AppBar(
-          title: Text(widget.title),
+          title: Text(widget.title)
         ),
         body: Center(
           child: Column(

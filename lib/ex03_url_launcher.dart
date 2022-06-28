@@ -17,7 +17,7 @@ class _DemoPageState extends State<DemoPage> {
     // https://pub.dev/packages/url_launcher
     return Scaffold(
         appBar: AppBar(
-          title: Text(widget.title),
+          title: Text(widget.title)
         ),
         body: Center(
             child: ElevatedButton(

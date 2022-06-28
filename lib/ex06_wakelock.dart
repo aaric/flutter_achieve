@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:css_colors/css_colors.dart';
+import 'package:wakelock/wakelock.dart';
 
 class DemoPage extends StatefulWidget {
   const DemoPage({super.key, required this.title});
@@ -13,13 +13,24 @@ class DemoPage extends StatefulWidget {
 class _DemoPageState extends State<DemoPage> {
 
   @override
+  void initState() {
+    // Wakelock.disable();
+    Wakelock.enable();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    // https://pub.dev/packages/css_colors
     return Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title)
-        ),
-        body: Container(color: CSSColors.orange)
+      appBar: AppBar(
+        title: Text(widget.title)
+      ),
+      body: Center(
+        child: Column(
+          children: [
+            Text('hello wakelock')
+          ]
+        )
+      )
     );
   }
 }

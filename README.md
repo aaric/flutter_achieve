@@ -106,3 +106,4 @@ flutter config --enable-linux-desktop
 |3|[url_launcher](https://pub.dev/packages/url_launcher)|`^6.1.4`||*打开URL地址*|
 |4|[mqtt_client](https://pub.dev/packages/mqtt_client)|`^9.6.8`||*MQTT支持*|
 |5|[device_info_plus](https://pub.dev/packages/device_info_plus)|`^4.0.0`||*查询设置信息*|
+|6|[wakelock](https://pub.dev/packages/wakelock/install)|`^0.6.1+2`||*防止屏幕休眠*|

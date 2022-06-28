@@ -6,7 +6,8 @@ import 'package:flutter/material.dart';
 // import 'ex02_fluttertoast.dart';
 // import 'ex03_url_launcher.dart';
 // import 'ex04_mqtt_client.dart';
-import 'ex05_device_info_plus.dart';
+// import 'ex05_device_info_plus.dart';
+import 'ex06_wakelock.dart';
 
 void main() {
   runApp(const MyApp());

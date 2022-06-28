@@ -23,30 +23,22 @@ class _DemoPageState extends State<DemoPage> {
     // https://pub.dev/packages/mqtt_client
     return Scaffold(
         appBar: AppBar(
-          title: Text(widget.title),
+          title: Text(widget.title)
         ),
-        body: Column(
+        body: Center(
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [Text('$stateText')]),
-              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                ElevatedButton(onPressed: _reconnect, child: const Text('reconnect'))
-              ]),
-              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                ElevatedButton(onPressed: _subscribe, child: const Text('subscribe'))
-              ]),
-              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                ElevatedButton(onPressed: _publish, child: const Text('publish'))
-              ]),
-              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                ElevatedButton(onPressed: _unsubscribe, child: const Text('unsubscribe'))
-              ]),
-              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                ElevatedButton(onPressed: _disconnect, child: const Text('disconnect'))
-          ])
-    ]));
+              Text('$stateText'),
+              ElevatedButton(onPressed: _reconnect, child: const Text('reconnect')),
+              ElevatedButton(onPressed: _subscribe, child: const Text('subscribe')),
+              ElevatedButton(onPressed: _publish, child: const Text('publish')),
+              ElevatedButton(onPressed: _unsubscribe, child: const Text('unsubscribe')),
+              ElevatedButton(onPressed: _disconnect, child: const Text('disconnect'))
+            ]
+          )
+        )
+    );
   }
 
   @override

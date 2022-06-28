@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:wakelock/wakelock.dart';
+
 // import 'ch01_hello_word.dart';
 // import 'ch02_base_image.dart';
 // import 'ch03_base_info.dart';
@@ -10,6 +12,9 @@ import 'package:flutter/material.dart';
 import 'ex06_wakelock.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  Wakelock.enable();
+
   runApp(const MyApp());
 }
 

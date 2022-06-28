@@ -11,6 +11,7 @@ class DemoPage extends StatefulWidget {
 }
 
 class _DemoPageState extends State<DemoPage> {
+  var _wakelockState = true;
 
   @override
   void initState() {
@@ -26,11 +27,25 @@ class _DemoPageState extends State<DemoPage> {
       ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('hello wakelock')
+            Text('The wakelock is currently ${_wakelockState? "enable": "disable"}'),
+            ElevatedButton(onPressed: _toggleWakelock, child: Text('${!_wakelockState? "enable": "disable"}'))
           ]
         )
       )
     );
+  }
+
+  void _toggleWakelock() {
+    setState((){
+      _wakelockState = !_wakelockState;
+    });
+    // if (_wakelockState) {
+    //   Wakelock.enable();
+    // } else {
+    //   Wakelock.disable();
+    // }
+    Wakelock.toggle(enable: _wakelockState);
   }
 }

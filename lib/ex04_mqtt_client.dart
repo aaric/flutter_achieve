@@ -71,9 +71,11 @@ class _DemoPageState extends State<DemoPage> {
 
     final connMsg = MqttConnectMessage()
         // .authenticateAs('username', 'password')
+        // Replaced by keepAlivePeriod
         // .keepAliveFor(60)
         .withWillTopic(_pubTopic)
         .withWillMessage('{"state": "dead"}')
+        // Non persistent session for testing
         .startClean()
         .withWillQos(MqttQos.exactlyOnce);
     client.connectionMessage = connMsg;

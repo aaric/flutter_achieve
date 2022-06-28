@@ -18,24 +18,6 @@ class _DemoPageState extends State<DemoPage> {
   var _osVersion = 'unknown';
 
   @override
-  void initState() {
-    initStateAsync();
-  }
-
-  void initStateAsync() async {
-    DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
-    if (Platform.isAndroid) {
-      AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
-      _osName = androidInfo.display!;
-      _osMode = androidInfo.model!;
-      _osVersion = androidInfo.version.release!;
-    } else if(Platform.isWindows) {
-      WindowsDeviceInfo windowsInfo = await deviceInfo.windowsInfo;
-      _osName = windowsInfo.computerName;
-    }
-  }
-
-  @override
   Widget build(BuildContext context) {
     // https://pub.dev/packages/device_info_plus
     return Scaffold(
@@ -53,5 +35,24 @@ class _DemoPageState extends State<DemoPage> {
           )
         )
       );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    initStateAsync();
+  }
+
+  void initStateAsync() async {
+    DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
+    if (Platform.isAndroid) {
+      AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
+      _osName = androidInfo.display!;
+      _osMode = androidInfo.model!;
+      _osVersion = androidInfo.version.release!;
+    } else if(Platform.isWindows) {
+      WindowsDeviceInfo windowsInfo = await deviceInfo.windowsInfo;
+      _osName = windowsInfo.computerName;
+    }
   }
 }

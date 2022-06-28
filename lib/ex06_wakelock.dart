@@ -14,12 +14,6 @@ class _DemoPageState extends State<DemoPage> {
   var _wakelockState = true;
 
   @override
-  void initState() {
-    // Wakelock.disable();
-    Wakelock.enable();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -35,6 +29,13 @@ class _DemoPageState extends State<DemoPage> {
         )
       )
     );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    // Wakelock.disable();
+    Wakelock.enable();
   }
 
   void _toggleWakelock() {

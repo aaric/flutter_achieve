@@ -9,7 +9,8 @@ import 'package:wakelock/wakelock.dart';
 // import 'ex03_url_launcher.dart';
 // import 'ex04_mqtt_client.dart';
 // import 'ex05_device_info_plus.dart';
-import 'ex06_wakelock.dart';
+// import 'ex06_wakelock.dart';
+import 'ex07_shared_preferences.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

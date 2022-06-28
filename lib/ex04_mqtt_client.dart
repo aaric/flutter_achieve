@@ -43,6 +43,7 @@ class _DemoPageState extends State<DemoPage> {
 
   @override
   void initState() {
+    super.initState();
     initStateAsync();
   }
 

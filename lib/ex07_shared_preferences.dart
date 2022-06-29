@@ -11,14 +11,19 @@ class DemoPage extends StatefulWidget {
 }
 
 class _DemoPageState extends State<DemoPage> {
-  late SharedPreferences _prefs;
+  final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+
   int _dataInt = 0;
   bool _dataBool = false;
   double _dataDouble = 0.0;
   String _dataString = '';
+  List<String> _dataStringList = <String> [];
+
+  int counter = 0;
 
   @override
   Widget build(BuildContext context) {
+    // https://pub.dev/packages/shared_preferences
     return Scaffold(
       appBar: AppBar(
           title: Text(widget.title)
@@ -27,10 +32,11 @@ class _DemoPageState extends State<DemoPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('_dataInt: ${_prefs?.getInt("_dataInt")??0}'),
+            Text('_dataInt: $_dataInt'),
             Text('_dataBool: $_dataBool'),
             Text('_dataDouble: $_dataDouble'),
             Text('_dataString: $_dataString'),
+            Text('_dataStringList: ${_dataStringList.join(", ")}'),
             ElevatedButton(onPressed: _getData, child: const Text('get data')),
             ElevatedButton(onPressed: _setData, child: const Text('set data')),
             ElevatedButton(onPressed: _clearData, child: const Text('clear data'))
@@ -43,33 +49,48 @@ class _DemoPageState extends State<DemoPage> {
   @override
   void initState() {
     super.initState();
-    initStateAsync();
-  }
 
-  void initStateAsync() async {
-    _prefs = await SharedPreferences.getInstance();
+    _getData();
+
+    counter = _dataInt;
   }
 
   void _getData() async {
+    final SharedPreferences prefs = await _prefs;
     setState(() {
-      _dataInt = _prefs?.getInt("_dataInt")??0;
-      _dataBool = _prefs?.getBool("_dataBool")??false;
-      _dataDouble = _prefs?.getDouble("_dataDouble")??0.0;
-      _dataString = _prefs?.getString("_dataString")??'';
+      _dataInt = prefs.getInt("_dataInt") ?? 0;
+      _dataBool = prefs.getBool("_dataBool") ?? false;
+      _dataDouble = prefs.getDouble("_dataDouble") ?? 0.0;
+      _dataString = prefs.getString("_dataString") ?? '';
+      _dataStringList = prefs.getStringList("_dataStringList") ?? <String>[];
     });
   }
 
   void _setData() async {
-    await _prefs?.setInt("_dataInt", 1);
-    await _prefs?.setBool("_dataBool", true);
-    await _prefs?.setDouble("_dataDouble", 1.0)??0.0;
-    await _prefs?.setString("_dataString", "hello world");
+    final SharedPreferences prefs = await _prefs;
+    var flag = prefs.getBool("_dataBool") ?? false;
+    var strList = prefs.getStringList("_dataStringList") ?? <String>[];
+
+    counter += 1;
+    strList.add('A$counter');
+
+    await prefs.setInt("_dataInt", counter);
+    await prefs.setBool("_dataBool", !flag);
+    await prefs.setDouble("_dataDouble", 0.0 + counter);
+    await prefs.setString("_dataString", "hello world $counter");
+    await prefs.setStringList("_dataStringList", strList);
+
+    _getData();
   }
 
   void _clearData() async {
-    await _prefs?.remove("_dataInt");
-    await _prefs?.remove("_dataBool");
-    await _prefs?.remove("_dataDouble");
-    await _prefs?.remove("_dataString");
+    final SharedPreferences prefs = await _prefs;
+    await prefs.remove("_dataInt");
+    await prefs.remove("_dataBool");
+    await prefs.remove("_dataDouble");
+    await prefs.remove("_dataString");
+    await prefs.remove("_dataStringList");
+
+    _getData();
   }
 }

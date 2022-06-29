@@ -18,7 +18,7 @@ class _DemoPageState extends State<DemoPage> {
         title: Text(widget.title)
       ),
       body: const Center(
-        child: Text('hello world')
+        child: Text('hello world --> != fira code', style: TextStyle(fontFamily: 'Fira Code'))
       ),
     );
   }

@@ -4,7 +4,8 @@ import 'package:wakelock/wakelock.dart';
 // import 'ch01_hello_word.dart';
 // import 'ch02_base_image.dart';
 // import 'ch03_base_info.dart';
-import 'ch04_base_layout.dart';
+// import 'ch04_base_font.dart';
+import 'ch05_base_layout.dart';
 // import 'ex01_css_colors.dart';
 // import 'ex02_fluttertoast.dart';
 // import 'ex03_url_launcher.dart';
@@ -28,7 +29,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue
+        primarySwatch: Colors.blue,
+        fontFamily: 'Fira Code'
       ),
       home: const DemoPage(title: 'Flutter Demo Home Page')
     );

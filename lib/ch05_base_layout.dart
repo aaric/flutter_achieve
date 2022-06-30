@@ -35,7 +35,7 @@ class _DemoPageState extends State<DemoPage> {
         ),
         itemCount: _iconList.length,
         itemBuilder: (context, index) {
-          if (index == _iconList.length - 1 && 25 > _iconList.length) {
+          if (index == _iconList.length - 1 && 30 > _iconList.length) {
             _receiveIconList();
           }
           return Icon(_iconList[index]);
@@ -57,10 +57,7 @@ class _DemoPageState extends State<DemoPage> {
         _iconList.addAll([
           Icons.ac_unit,
           Icons.ac_unit,
-          Icons.ac_unit,
-          Icons.ac_unit,
-          Icons.ac_unit,
-          Icons.ac_unit,
+          Icons.ac_unit
         ]);
       });
     });

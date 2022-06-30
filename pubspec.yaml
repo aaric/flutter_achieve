@@ -34,6 +34,6 @@ flutter:
   fonts:
     - family: Fira Code
       fonts:
-        - asset: fonts/FiraCode.ttf
-        - asset: fonts/FiraCode-Bold.ttf
+        - asset: assets/fonts/FiraCode.ttf
+        - asset: assets/fonts/FiraCode-Bold.ttf
           weight: 700

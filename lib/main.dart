@@ -3,11 +3,11 @@ import 'package:wakelock/wakelock.dart';
 
 // import 'ch01_hello_word.dart';
 // import 'ch02_base_image.dart';
-import 'ch03_base_info.dart';
+// import 'ch03_base_info.dart';
 // import 'ch04_base_font.dart';
 // import 'ch05_base_layout.dart';
 // import 'ch06_base_widget.dart';
-// import 'ch07_base_json.dart';
+import 'ch07_base_json.dart';
 // import 'ex01_css_colors.dart';
 // import 'ex02_fluttertoast.dart';
 // import 'ex03_url_launcher.dart';

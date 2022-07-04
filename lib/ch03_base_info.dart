@@ -25,26 +25,11 @@ class _DemoPageState extends State<DemoPage> {
           child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text('os: $_osText')
-                  ]
-                ),
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text('ip: $_ipText')
-                    ]
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    ElevatedButton(
-                        onPressed: _onPressed,
-                        child: Text('check')
-                    )
-                  ]
+                Text('os: $_osText'),
+                Text('ip: $_ipText'),
+                ElevatedButton(
+                    onPressed: _onPressed,
+                    child: const Text('check')
                 )
               ]
           )

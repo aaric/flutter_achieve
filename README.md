@@ -89,6 +89,7 @@ ls $env:
 # windows
 flutter config --enable-windows-desktop
 start ms-settings:developers
+flutter build windows --release
 
 # macos
 flutter config --enable-macos-desktop

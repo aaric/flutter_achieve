@@ -1,27 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class DemoPage extends StatefulWidget {
+  const DemoPage({super.key, required this.title});
+
+  final String title;
 
   @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(home: DemoPage());
-  }
+  State<StatefulWidget> createState() => _DemoPageState();
 }
 
-class DemoPage extends StatelessWidget {
-  const DemoPage({super.key});
+class _DemoPageState extends State<DemoPage> {
 
   @override
   Widget build(BuildContext context) {
+    // https://pub.dev/packages/url_launcher
     return Scaffold(
-      body: Center(
-        child: ElevatedButton(
-          onPressed: _launchUrl,
-          child: const Text('Open pub.dev for china')
+        appBar: AppBar(
+          title: Text(widget.title)
+        ),
+        body: Center(
+            child: ElevatedButton(
+                onPressed: _launchUrl,
+                child: const Text('Open pub.dev for china')
+            )
         )
-      )
     );
   }
 

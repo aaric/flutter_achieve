@@ -2,23 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:mqtt_client/mqtt_client.dart';
 import 'package:mqtt_client/mqtt_server_client.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(home: DemoPage());
-  }
-}
-
 class DemoPage extends StatefulWidget {
-  const DemoPage({super.key});
+  const DemoPage({super.key, required this.title});
+
+  final String title;
 
   @override
-  State<StatefulWidget> createState() => _DemoState();
+  State<StatefulWidget> createState() => _DemoPageState();
 }
 
-class _DemoState extends State<DemoPage> {
+class _DemoPageState extends State<DemoPage> {
   final _subTopic = '/msg/client/2';
   final _pubTopic = '/msg/server/default';
   MqttServerClient? _client;
@@ -27,34 +20,35 @@ class _DemoState extends State<DemoPage> {
 
   @override
   Widget build(BuildContext context) {
+    // https://pub.dev/packages/mqtt_client
     return Scaffold(
-        body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-      /*Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-        Flexible(
-            child: TextField(
-                keyboardType: TextInputType.text,
-                decoration: const InputDecoration(labelText: 'Input'),
-                onChanged: (content) => print(content)))
-      ]),*/
-      Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [Text('$stateText')]),
-      Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-        ElevatedButton(onPressed: _connect, child: const Text('连接'))
-      ]),
-      Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-        ElevatedButton(onPressed: _subscribe, child: const Text('订阅'))
-      ]),
-      Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-        ElevatedButton(onPressed: _publish, child: const Text('发布'))
-      ]),
-      Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-        ElevatedButton(onPressed: _unsubscribe, child: const Text('取消订阅'))
-      ]),
-      Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-        ElevatedButton(onPressed: _disconnect, child: const Text('断开连接'))
-      ])
-    ]));
+        appBar: AppBar(
+          title: Text(widget.title)
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('$stateText'),
+              ElevatedButton(onPressed: _reconnect, child: const Text('reconnect')),
+              ElevatedButton(onPressed: _subscribe, child: const Text('subscribe')),
+              ElevatedButton(onPressed: _publish, child: const Text('publish')),
+              ElevatedButton(onPressed: _unsubscribe, child: const Text('unsubscribe')),
+              ElevatedButton(onPressed: _disconnect, child: const Text('disconnect'))
+            ]
+          )
+        )
+    );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    initStateAsync();
+  }
+
+  void initStateAsync() async {
+    _client = await _connect();
   }
 
   Future<MqttServerClient> _connect() async {
@@ -70,28 +64,30 @@ class _DemoState extends State<DemoPage> {
 
     final connMsg = MqttConnectMessage()
         // .authenticateAs('username', 'password')
+        // Replaced by keepAlivePeriod
         // .keepAliveFor(60)
-        .withWillTopic('willTopic')
-        .withWillMessage('willMessage')
+        .withWillTopic(_pubTopic)
+        .withWillMessage('{"state": "dead"}')
+        // Non persistent session for testing
         .startClean()
         .withWillQos(MqttQos.exactlyOnce);
     client.connectionMessage = connMsg;
+    client.keepAlivePeriod = 60;
 
     try {
       await client.connect();
     } catch (e) {
-      print('connect exception: $e');
+      updateStateText('connect exception: $e');
       client.disconnect();
     }
 
     client.updates?.listen((event) {
       final msg = event[0].payload as MqttPublishMessage;
-      final payload =
-          MqttPublishPayload.bytesToStringAsString(msg.payload.message);
-      print('received msg: $payload from topic: ${event[0].topic}');
+      final payload = MqttPublishPayload.bytesToStringAsString(msg.payload.message);
+      updateStateText('received msg: $payload from topic: ${event[0].topic}');
     });
 
-    _client = client;
+    // _client = client;
     updateStateText('connected');
 
     return client;
@@ -101,25 +97,35 @@ class _DemoState extends State<DemoPage> {
     setState(() {
       stateText = text;
     });
+    print('$text');
+  }
+
+  void _reconnect() async {
+    if (MqttConnectionState.connected != _client?.connectionStatus?.state) {
+      _client = await _connect();
+      updateStateText('reconnected');
+    } else {
+      print('reconnected not must');
+    }
   }
 
   void _subscribe() async {
     _client?.subscribe(_subTopic, MqttQos.exactlyOnce);
-    print('$_subTopic subscribed');
+    updateStateText('$_subTopic subscribed');
   }
 
   void _publish() async {
-    const pubMsg = 'hello world';
+    const pubMsg = '{"msg": "hello mqtt"}';
     final payloadBuilder = MqttClientPayloadBuilder();
     payloadBuilder.addUTF8String(pubMsg);
     _client?.publishMessage(
-        _pubTopic, MqttQos.exactlyOnce, payloadBuilder.payload!);
-    print('$pubMsg published to $_pubTopic');
+        _pubTopic, MqttQos.exactlyOnce, payloadBuilder.payload!, retain: true);
+    updateStateText('$pubMsg published to $_pubTopic');
   }
 
   void _unsubscribe() async {
     _client?.unsubscribe(_subTopic);
-    print('$_subTopic unsubscribed');
+    updateStateText('$_subTopic unsubscribed');
   }
 
   void _disconnect() async {

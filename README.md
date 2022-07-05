@@ -109,3 +109,25 @@ flutter config --enable-linux-desktop
 |5|[device_info_plus](https://pub.dev/packages/device_info_plus)|`^4.0.0`||*获取设置信息*|
 |6|[wakelock](https://pub.dev/packages/wakelock)|`^0.6.1+2`||*防止屏幕休眠*|
 |7|[shared_preferences](https://pub.dev/packages/shared_preferences)|`^2.0.15`||*简单持久存储数据*|
+
+## 5 应用名称与LOGO
+
+### 5.1 应用名称
+
+|No.|Terminal|File Path|Keyword|Remark|
+|:---:|:---:|-----|:---:|-----|
+|1|Android|`android/app/src/main/AndroidManifest.xml`|`android:label="flutter_achieve"`|*Flutter小例子*|
+|2|iOS|`tbd`|`tbd`||
+|3|Windows|`tbd`|`tbd`||
+|4|MacOS|`tbd`|`tbd`||
+|5|Linux|`tbd`|`tbd`||
+
+### 5.2 LOGO
+
+|No.|Terminal|File Path|Remark|
+|:---:|:---:|-----|-----|
+|1|Android|`android/app/src/main/res/mipmap-*/ic_launcher.png`|*5 different sizes*|
+|2|iOS|`tbd`||
+|3|Windows|`tbd`||
+|4|MacOS|`tbd`||
+|5|Linux|`tbd`||

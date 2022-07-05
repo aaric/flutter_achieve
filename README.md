@@ -98,7 +98,7 @@ flutter config --enable-macos-desktop
 flutter config --enable-linux-desktop
 ```
 
-## 3 Flutter 插件
+## 4 Flutter 插件与支持
 
 |No.|Plugin Name|Current Version|Permission|Remark|
 |:---:|:---:|:---:|:---:|-----|

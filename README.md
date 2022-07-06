@@ -116,8 +116,8 @@ flutter config --enable-linux-desktop
 
 |No.|Terminal|File Path|Keyword|Remark|
 |:---:|:---:|-----|:---:|-----|
-|1|Android|`android/app/src/main/AndroidManifest.xml`|`android:label="flutter_achieve"`|*Flutter小例子*|
-|2|iOS|`tbd`|`tbd`||
+|1|Android|[`AndroidManifest.xml`](android/app/src/main/AndroidManifest.xml)|`android:label="flutter_achieve"`|*Flutter小例子*|
+|2|iOS|[`Info.plist`](ios/Runner/Info.plist)|`CFBundleName`||
 |3|Windows|`tbd`|`tbd`||
 |4|MacOS|`tbd`|`tbd`||
 |5|Linux|`tbd`|`tbd`||
@@ -126,8 +126,8 @@ flutter config --enable-linux-desktop
 
 |No.|Terminal|File Path|Remark|
 |:---:|:---:|-----|-----|
-|1|Android|`android/app/src/main/res/mipmap-*/ic_launcher.png`|*5 different sizes*|
-|2|iOS|`tbd`||
+|1|Android|[`mipmap-*/ic_launcher.png`](android/app/src/main/res)|*Image Asset Studio*|
+|2|iOS|[`Icon-App-*@*.png`](ios/Runner/Assets.xcassets/AppIcon.appiconset)||
 |3|Windows|`tbd`||
 |4|MacOS|`tbd`||
 |5|Linux|`tbd`||

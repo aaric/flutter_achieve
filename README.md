@@ -118,9 +118,9 @@ flutter config --enable-linux-desktop
 |:---:|:---:|-----|:---:|-----|
 |1|Android|[`AndroidManifest.xml`](android/app/src/main/AndroidManifest.xml)|`android:label="flutter_achieve"`|*Flutter小例子*|
 |2|iOS|[`Info.plist`](ios/Runner/Info.plist)|`CFBundleName`||
-|3|Windows|[`window_size`](https://github.com/google/flutter-desktop-embedding)|||
-|4|MacOS|[`window_size`](https://github.com/google/flutter-desktop-embedding)|||
-|5|Linux|[`window_size`](https://github.com/google/flutter-desktop-embedding)|||
+|3|Windows|||[`window_size`](https://github.com/google/flutter-desktop-embedding)|
+|4|MacOS|||[`window_size`](https://github.com/google/flutter-desktop-embedding)|
+|5|Linux|||[`window_size`](https://github.com/google/flutter-desktop-embedding)|
 
 ### 5.2 LOGO
 
@@ -130,4 +130,4 @@ flutter config --enable-linux-desktop
 |2|iOS|[`Icon-App-*@*.png`](ios/Runner/Assets.xcassets/AppIcon.appiconset)||
 |3|Windows|[`app_icon.ico`](windows/runner/resources)|[tool.lu](https://tool.lu/favicon/)|
 |4|MacOS|[`app_icon_*.png`](macos/Runner/Assets.xcassets/AppIcon.appiconset)||
-|5|Linux||*TBD*|
+|5|Linux|||

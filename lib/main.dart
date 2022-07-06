@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:window_size/window_size.dart';
+// import 'package:window_size/window_size.dart';
 import 'package:wakelock/wakelock.dart';
 
 // import 'ch01_hello_word.dart';
@@ -22,9 +22,9 @@ import 'ch07_base_json.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
-  if (Platform.isWindows || Platform.isMacOS || Platform.isLinux) {
-    setWindowTitle('Flutter小例子');
-  }
+  // if (Platform.isWindows || Platform.isMacOS || Platform.isLinux) {
+  //   setWindowTitle('Flutter小例子');
+  // }
 
   Wakelock.enable();
 

@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.flutter_achieve">
    <application
-        android:label="Flutter小例子"
+        android:label="@string/appName"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

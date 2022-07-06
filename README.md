@@ -1,4 +1,4 @@
-# flutter_applet
+# flutter_achieve
 
 [![JDK](https://img.shields.io/badge/JDK-17.0.2-brightgreen.svg?style=flat&logo=java)](https://www.oracle.com/java/technologies/javase-downloads.html)
 [![Flutter](https://img.shields.io/badge/Flutter-3.0.2-brightgreen.svg?style=flat&logo=flutter)](https://docs.flutter.dev)
@@ -128,6 +128,6 @@ flutter config --enable-linux-desktop
 |:---:|:---:|-----|-----|
 |1|Android|[`mipmap-*/ic_launcher.png`](android/app/src/main/res)|*Image Asset Studio*|
 |2|iOS|[`Icon-App-*@*.png`](ios/Runner/Assets.xcassets/AppIcon.appiconset)||
-|3|Windows|`tbd`||
+|3|Windows|[`app_icon.ico`](windows/runner/resources)|[tool.lu](https://tool.lu/favicon/)|
 |4|MacOS|`tbd`||
 |5|Linux|`tbd`||

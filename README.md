@@ -120,7 +120,7 @@ flutter config --enable-linux-desktop
 |2|iOS|[`Info.plist`](ios/Runner/Info.plist)|`CFBundleName`|*No Testing*|
 |3|Windows|[`main.cpp`](windows/runner/main.cpp)|`window.CreateAndShow(L"flutter_achieve", origin, size)`|*存在中文兼容问题*|
 |4|MacOS|[`AppInfo.xcconfig`](macos/Runner/Configs/AppInfo.xcconfig)|`PRODUCT_NAME = flutter_achieve`|*No Testing*|
-|5|Linux|||[`window_size`](https://github.com/google/flutter-desktop-embedding)|
+|5|Linux|[`my_application.cc`](linux/my_application.cc)|`gtk_header_bar_set_title` `gtk_window_set_title`|*No Testing*|
 
 ### 5.2 LOGO
 

@@ -118,7 +118,7 @@ flutter config --enable-linux-desktop
 |:---:|:---:|-----|:---:|-----|
 |1|Android|[`AndroidManifest.xml`](android/app/src/main/AndroidManifest.xml)|`android:label="flutter_achieve"`|*Flutter小例子*|
 |2|iOS|[`Info.plist`](ios/Runner/Info.plist)|`CFBundleName`||
-|3|Windows|||[`window_size`](https://github.com/google/flutter-desktop-embedding)|
+|3|Windows|[`main.cpp`](windows/runner/main.cpp)|`window.CreateAndShow(L"flutter_achieve", origin, size)`|*Flutter Demo，存在中文兼容问题*|
 |4|MacOS|||[`window_size`](https://github.com/google/flutter-desktop-embedding)|
 |5|Linux|||[`window_size`](https://github.com/google/flutter-desktop-embedding)|
 

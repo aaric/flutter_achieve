@@ -1,4 +1,4 @@
-# flutter_applet
+# flutter_achieve
 
 [![JDK](https://img.shields.io/badge/JDK-17.0.2-brightgreen.svg?style=flat&logo=java)](https://www.oracle.com/java/technologies/javase-downloads.html)
 [![Flutter](https://img.shields.io/badge/Flutter-3.0.2-brightgreen.svg?style=flat&logo=flutter)](https://docs.flutter.dev)
@@ -109,3 +109,25 @@ flutter config --enable-linux-desktop
 |5|[device_info_plus](https://pub.dev/packages/device_info_plus)|`^4.0.0`||*获取设置信息*|
 |6|[wakelock](https://pub.dev/packages/wakelock)|`^0.6.1+2`||*防止屏幕休眠*|
 |7|[shared_preferences](https://pub.dev/packages/shared_preferences)|`^2.0.15`||*简单持久存储数据*|
+
+## 5 应用名称与LOGO
+
+### 5.1 应用名称
+
+|No.|Terminal|File Path|Keyword|Remark|
+|:---:|:---:|-----|:---:|-----|
+|1|Android|[`AndroidManifest.xml`](android/app/src/main/AndroidManifest.xml)|`android:label="flutter_achieve"`|*Flutter小例子*|
+|2|iOS|[`Info.plist`](ios/Runner/Info.plist)|`CFBundleName`|*No Testing*|
+|3|Windows|[`main.cpp`](windows/runner/main.cpp)|`window.CreateAndShow(L"flutter_achieve", origin, size)`|*存在中文兼容问题*|
+|4|MacOS|[`AppInfo.xcconfig`](macos/Runner/Configs/AppInfo.xcconfig)|`PRODUCT_NAME = flutter_achieve`|*No Testing*|
+|5|Linux|[`my_application.cc`](linux/my_application.cc)|`gtk_header_bar_set_title` `gtk_window_set_title`|*No Testing*|
+
+### 5.2 LOGO
+
+|No.|Terminal|File Path|Remark|
+|:---:|:---:|-----|-----|
+|1|Android|[`mipmap-*/ic_launcher.png`](android/app/src/main/res)|*Image Asset Studio*|
+|2|iOS|[`Icon-App-*@*.png`](ios/Runner/Assets.xcassets/AppIcon.appiconset)||
+|3|Windows|[`app_icon.ico`](windows/runner/resources)|[tool.lu](https://tool.lu/favicon/)|
+|4|MacOS|[`app_icon_*.png`](macos/Runner/Assets.xcassets/AppIcon.appiconset)||
+|5|Linux||*Pending*|

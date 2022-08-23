@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_applet/pojo/Student.dart';
+import 'package:flutter_achieve/pojo/Student.dart';
 
 class DemoPage extends StatefulWidget {
   const DemoPage({super.key, required this.title});

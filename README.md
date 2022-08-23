@@ -104,10 +104,10 @@ flutter config --enable-linux-desktop
 |:---:|:---:|:---:|:---:|-----|
 |1|[css_colors](https://pub.dev/packages/css_colors)|`^1.1.1`||*CSS颜色*|
 |2|[fluttertoast](https://pub.dev/packages/fluttertoast)|`^8.0.9`||*类似Android Toast提示*|
-|3|[url_launcher](https://pub.dev/packages/url_launcher)|`^6.1.4`||*打开URL链接*|
+|3|[url_launcher](https://pub.dev/packages/url_launcher)|`^6.1.5`||*打开URL链接*|
 |4|[mqtt_client](https://pub.dev/packages/mqtt_client)|`^9.6.8`||*MQTT支持*|
-|5|[device_info_plus](https://pub.dev/packages/device_info_plus)|`^4.0.0`||*获取设置信息*|
-|6|[wakelock](https://pub.dev/packages/wakelock)|`^0.6.1+2`||*防止屏幕休眠*|
+|5|[device_info_plus](https://pub.dev/packages/device_info_plus)|`^4.1.2`||*获取设置信息*|
+|6|[wakelock](https://pub.dev/packages/wakelock)|`^0.6.2`||*防止屏幕休眠*|
 |7|[shared_preferences](https://pub.dev/packages/shared_preferences)|`^2.0.15`||*简单持久存储数据*|
 
 ## 5 应用名称与LOGO

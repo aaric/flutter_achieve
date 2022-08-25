@@ -10,7 +10,7 @@ import 'package:wakelock/wakelock.dart';
 // import 'ch04_base_font.dart';
 // import 'ch05_base_layout.dart';
 // import 'ch06_base_widget.dart';
-import 'ch07_base_json.dart';
+// import 'ch07_base_json.dart';
 // import 'ex01_css_colors.dart';
 // import 'ex02_fluttertoast.dart';
 // import 'ex03_url_launcher.dart';
@@ -18,6 +18,8 @@ import 'ch07_base_json.dart';
 // import 'ex05_device_info_plus.dart';
 // import 'ex06_wakelock.dart';
 // import 'ex07_shared_preferences.dart';
+import 'ex08_file_picker.dart';
+// import 'ex09_ftpconnect.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

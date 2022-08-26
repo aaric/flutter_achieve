@@ -61,7 +61,7 @@ class _DemoPageState extends State<DemoPage> {
             }, child: const Text('select directory')),
             Text('$_selectDirectoryPath')
           ]
-        ),
+        )
       )
     );
   }

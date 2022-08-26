@@ -1,7 +1,7 @@
 # flutter_achieve
 
 [![Flutter](https://img.shields.io/badge/Flutter-3.0.5-brightgreen.svg?style=flat&logo=flutter)](https://docs.flutter.dev)
-[![Android](https://img.shields.io/badge/Android-32-brightgreen.svg?style=flat&logo=android)](https://developer.android.com/docs)
+[![Android SDK](https://img.shields.io/badge/Android_SDK-33-brightgreen.svg?style=flat&logo=android)](https://developer.android.com/docs)
 [![Android Studio](https://img.shields.io/badge/Android_Studio-2021.2.1-brightgreen.svg?style=flat&logo=android_studio)](https://developer.android.com/studio)
 [![Visual Studio](https://img.shields.io/badge/Visual_Studio-17.2-brightgreen.svg?style=flat&logo=visual_studio)](https://visualstudio.microsoft.com/)
 [![Release](https://img.shields.io/badge/Release-2.2.0-blue.svg)](https://github.com/aaric/flutter_achieve/releases)

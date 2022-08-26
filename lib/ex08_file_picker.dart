@@ -11,6 +11,7 @@ class DemoPage extends StatefulWidget {
 }
 
 class _DemoPageState extends State<DemoPage> {
+  String _selectFilePath = 'unknown';
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,35 @@ class _DemoPageState extends State<DemoPage> {
       appBar: AppBar(
         title: Text(widget.title)
       ),
-      body: Text("hello file picker")
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(onPressed: () async {
+              // FilePickerResult? result = await FilePicker.platform.pickFiles();
+              FilePickerResult? result = await FilePicker.platform.pickFiles(
+                type: FileType.custom,
+                allowedExtensions: ['jpg', 'png']
+              );
+              if (null != result) {
+                setState(() {
+                  // _selectFilePath = result.files.single.path??_selectFilePath;
+
+                  // List<File> selectFileList = result.paths.map((e) => File(e??'')).toList();
+                  // _selectFilePath = selectFileList[0].path;
+
+                  PlatformFile selectFile = result.files.first;
+                  _selectFilePath = '${selectFile.name} | ${selectFile.extension} | ${selectFile.bytes} | ${selectFile.size}';
+                });
+                print('select file path: $_selectFilePath');
+              } else {
+                print('select file exception');
+              }
+            }, child: const Text('select file')),
+            Text('$_selectFilePath')
+          ]
+        ),
+      )
     );
   }
 }

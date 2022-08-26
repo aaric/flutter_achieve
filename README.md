@@ -99,7 +99,7 @@ flutter config --enable-linux-desktop
 
 ## 4 Flutter 插件与支持
 
-|No.|Plugin Name|Current Version|Demo||Remark|
+|No.|Plugin Name|Current Version|Demo|Remark|
 |:---:|:---:|:---:|:---:|-----|
 |1|[css_colors](https://pub.dev/packages/css_colors)|`^1.1.1`|[ex01_css_colors.dart](https://github.com/aaric/flutter_achieve/blob/master/lib/ex01_css_colors.dart)|*CSS颜色*|
 |2|[fluttertoast](https://pub.dev/packages/fluttertoast)|`^8.0.9`|[ex02_fluttertoast.dart](https://github.com/aaric/flutter_achieve/blob/master/lib/ex02_fluttertoast.dart)|*类似Android Toast提示*|

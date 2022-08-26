@@ -6,8 +6,8 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 import 'package:flutter/material.dart';
-import 'package:flutter_applet/ch01_hello_word.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:flutter_achieve/ch01_hello_word.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);

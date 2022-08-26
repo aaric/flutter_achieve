@@ -1,11 +1,10 @@
 # flutter_achieve
 
-[![JDK](https://img.shields.io/badge/JDK-17.0.2-brightgreen.svg?style=flat&logo=java)](https://www.oracle.com/java/technologies/javase-downloads.html)
-[![Flutter](https://img.shields.io/badge/Flutter-3.0.2-brightgreen.svg?style=flat&logo=flutter)](https://docs.flutter.dev)
+[![Flutter](https://img.shields.io/badge/Flutter-3.0.5-brightgreen.svg?style=flat&logo=flutter)](https://docs.flutter.dev)
 [![Android](https://img.shields.io/badge/Android-32-brightgreen.svg?style=flat&logo=android)](https://developer.android.com/docs)
 [![Android Studio](https://img.shields.io/badge/Android_Studio-2021.2.1-brightgreen.svg?style=flat&logo=android_studio)](https://developer.android.com/studio)
 [![Visual Studio](https://img.shields.io/badge/Visual_Studio-17.2-brightgreen.svg?style=flat&logo=visual_studio)](https://visualstudio.microsoft.com/)
-[![release](https://img.shields.io/badge/release-2.0.0-blue.svg)](https://github.com/aaric/flutter_achieve/releases)
+[![Release](https://img.shields.io/badge/Release-2.2.0-blue.svg)](https://github.com/aaric/flutter_achieve/releases)
 
 > A new Flutter project.
 
@@ -100,15 +99,17 @@ flutter config --enable-linux-desktop
 
 ## 4 Flutter 插件与支持
 
-|No.|Plugin Name|Current Version|Permission|Remark|
+|No.|Plugin Name|Current Version|Demo||Remark|
 |:---:|:---:|:---:|:---:|-----|
-|1|[css_colors](https://pub.dev/packages/css_colors)|`^1.1.1`||*CSS颜色*|
-|2|[fluttertoast](https://pub.dev/packages/fluttertoast)|`^8.0.9`||*类似Android Toast提示*|
-|3|[url_launcher](https://pub.dev/packages/url_launcher)|`^6.1.4`||*打开URL链接*|
-|4|[mqtt_client](https://pub.dev/packages/mqtt_client)|`^9.6.8`||*MQTT支持*|
-|5|[device_info_plus](https://pub.dev/packages/device_info_plus)|`^4.0.0`||*获取设置信息*|
-|6|[wakelock](https://pub.dev/packages/wakelock)|`^0.6.1+2`||*防止屏幕休眠*|
-|7|[shared_preferences](https://pub.dev/packages/shared_preferences)|`^2.0.15`||*简单持久存储数据*|
+|1|[css_colors](https://pub.dev/packages/css_colors)|`^1.1.1`|[ex01_css_colors.dart](https://github.com/aaric/flutter_achieve/blob/master/lib/ex01_css_colors.dart)|*CSS颜色*|
+|2|[fluttertoast](https://pub.dev/packages/fluttertoast)|`^8.0.9`|[ex02_fluttertoast.dart](https://github.com/aaric/flutter_achieve/blob/master/lib/ex02_fluttertoast.dart)|*类似Android Toast提示*|
+|3|[url_launcher](https://pub.dev/packages/url_launcher)|`^6.1.5`|[ex03_url_launcher.dart](https://github.com/aaric/flutter_achieve/blob/master/lib/ex03_url_launcher.dart)|*打开URL链接*|
+|4|[mqtt_client](https://pub.dev/packages/mqtt_client)|`^9.6.8`|[ex04_mqtt_client.dart](https://github.com/aaric/flutter_achieve/blob/master/lib/ex04_mqtt_client.dart)|*MQTT支持*|
+|5|[device_info_plus](https://pub.dev/packages/device_info_plus)|`^4.1.2`|[ex05_device_info_plus.dart](https://github.com/aaric/flutter_achieve/blob/master/lib/ex05_device_info_plus.dart)|*获取设置信息*|
+|6|[wakelock](https://pub.dev/packages/wakelock)|`^0.6.2`|[ex06_wakelock.dart](https://github.com/aaric/flutter_achieve/blob/master/lib/ex06_wakelock.dart)|*防止屏幕休眠*|
+|7|[shared_preferences](https://pub.dev/packages/shared_preferences)|`^2.0.15`|[ex07_shared_preferences.dart](https://github.com/aaric/flutter_achieve/blob/master/lib/ex07_shared_preferences.dart)|*简单持久存储数据*|
+|8|[file_picker](https://pub.dev/packages/file_picker)|`^5.0.1`|[ex08_file_picker.dart](https://github.com/aaric/flutter_achieve/blob/master/lib/ex08_file_picker.dart)|*文件选择*|
+|9|[ftpconnect](https://pub.dev/packages/ftpconnect)|`^1.0.1`|[ex09_ftpconnect.dart](https://github.com/aaric/flutter_achieve/blob/master/lib/ex09_ftpconnect.dart)|*FTP客户端*|
 
 ## 5 应用名称与LOGO
 

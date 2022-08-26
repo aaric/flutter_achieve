@@ -108,9 +108,8 @@ flutter config --enable-linux-desktop
 |5|[device_info_plus](https://pub.dev/packages/device_info_plus)|`^4.1.2`|[ex05_device_info_plus.dart](https://github.com/aaric/flutter_achieve/blob/master/lib/ex05_device_info_plus.dart)|*获取设置信息*|
 |6|[wakelock](https://pub.dev/packages/wakelock)|`^0.6.2`|[ex06_wakelock.dart](https://github.com/aaric/flutter_achieve/blob/master/lib/ex06_wakelock.dart)|*防止屏幕休眠*|
 |7|[shared_preferences](https://pub.dev/packages/shared_preferences)|`^2.0.15`|[ex07_shared_preferences.dart](https://github.com/aaric/flutter_achieve/blob/master/lib/ex07_shared_preferences.dart)|*简单持久存储数据*|
-|8|[path_provider ](https://pub.dev/packages/path_provider)|`^2.0.11`||*获取应用目录*|
-|9|[file_picker](https://pub.dev/packages/file_picker)|`^5.0.1`|[ex08_file_picker.dart](https://github.com/aaric/flutter_achieve/blob/master/lib/ex08_file_picker.dart)|*文件选择*|
-|10|[ftpconnect](https://pub.dev/packages/ftpconnect)|`^1.0.1`|[ex09_ftpconnect.dart](https://github.com/aaric/flutter_achieve/blob/master/lib/ex09_ftpconnect.dart)|*FTP客户端*|
+|8|[file_picker](https://pub.dev/packages/file_picker)|`^5.0.1`|[ex08_file_picker.dart](https://github.com/aaric/flutter_achieve/blob/master/lib/ex08_file_picker.dart)|*文件选择*|
+|9|[ftpconnect](https://pub.dev/packages/ftpconnect)|`^1.0.1`|[ex09_ftpconnect.dart](https://github.com/aaric/flutter_achieve/blob/master/lib/ex09_ftpconnect.dart)|*FTP客户端*|
 
 ## 5 应用名称与LOGO
 

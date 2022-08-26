@@ -16,10 +16,10 @@ class DemoPage extends StatefulWidget {
 }
 
 class _DemoPageState extends State<DemoPage> {
-  var _ftpHost = '10.0.11.25';
-  var _ftpUser = 'incar_pkg';
-  var _ftpPass = 'incar_pkg';
-  var _saveDir = "test";
+  final _ftpHost = '127.0.0.1';
+  final _ftpUser = 'test';
+  final _ftpPass = 'test';
+  final _remoteDir = "test";
 
   @override
   Widget build(BuildContext context) {
@@ -41,12 +41,15 @@ class _DemoPageState extends State<DemoPage> {
                 File uploadFile = File(imageFilePath);
 
                 // uploadFileWithRetry(uploadFile);
-                uploadFileThrowException(uploadFile, _saveDir);
+                uploadFileThrowException(uploadFile, _remoteDir);
               }
             }, child: const Text('upload file')),
             ElevatedButton(onPressed: () async {
-              uploadFileInZip('test.zip', _saveDir);
+              uploadZipFile('test.zip', _remoteDir);
             }, child: const Text('upload zip file')),
+            ElevatedButton(onPressed: () async {
+              downloadFileUnzip('test.zip', _remoteDir);
+            }, child: const Text('download zip file'))
           ]
         )
       )
@@ -86,15 +89,15 @@ class _DemoPageState extends State<DemoPage> {
     }
   }
 
-  void uploadFileThrowException(File uploadFile, String saveDir) async {
+  void uploadFileThrowException(File uploadFile, String remoteDir) async {
     try {
       var client = FTPConnect(_ftpHost, user: _ftpUser, pass: _ftpPass);
       await client.connect();
-      if (!(await client.checkFolderExistence(saveDir))) {
-        await client.makeDirectory(saveDir);
-        print('create dir: $saveDir');
+      if (!(await client.checkFolderExistence(remoteDir))) {
+        await client.makeDirectory(remoteDir);
+        print('create dir: $remoteDir');
       }
-      await client.changeDirectory(saveDir);
+      await client.changeDirectory(remoteDir);
       await client.uploadFile(uploadFile);
       print('upload file: ${uploadFile.path}');
       await client.disconnect();
@@ -116,23 +119,49 @@ class _DemoPageState extends State<DemoPage> {
     return file;
   }
 
-  void uploadFileInZip(String zipFileName, String saveDir) async {
+  void uploadZipFile(String zipFileName, String remoteDir) async {
     try {
       // if(await Permission.storage.request().isGranted) {
-      File javaFile = await newTxtFile(fileName: "java.txt", content: 'hello java');
-      File flutterFile = await newTxtFile(fileName: "flutter.txt", content: 'hello flutter');
+      File javaFile = await newTxtFile(
+          fileName: "java.txt", content: 'hello java');
+      File flutterFile = await newTxtFile(
+          fileName: "flutter.txt", content: 'hello flutter');
       var zipFilePath = '${(await getAppDir()).path}/$zipFileName';
       await FTPConnect.zipFiles([javaFile.path, flutterFile.path], zipFilePath);
       // }
 
       var client = FTPConnect(_ftpHost, user: _ftpUser, pass: _ftpPass);
       await client.connect();
-      if (!(await client.checkFolderExistence(saveDir))) {
-        await client.makeDirectory(saveDir);
-        print('create dir: $saveDir');
+      if (!(await client.checkFolderExistence(remoteDir))) {
+        await client.makeDirectory(remoteDir);
+        print('create dir: $remoteDir');
       }
-      await client.changeDirectory(saveDir);
+      await client.changeDirectory(remoteDir);
       await client.uploadFile(File(zipFilePath));
+      await client.disconnect();
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  void downloadFileUnzip(String zipFileName, String remoteDir) async {
+    try {
+      var client = FTPConnect(_ftpHost, user: _ftpUser, pass: _ftpPass);
+      await client.connect();
+      if (!(await client.checkFolderExistence(remoteDir))) {
+        await client.makeDirectory(remoteDir);
+        print('create dir: $remoteDir');
+      }
+      await client.changeDirectory(remoteDir);
+
+      // String? parent = await FilePicker.platform.getDirectoryPath();
+      // if (null != parent) {
+      var parent = (await getAppDir()).path;
+      var zipFile = File('$parent/$zipFileName');
+      await client.downloadFile(zipFileName, zipFile);
+      FTPConnect.unZipFile(zipFile, parent);
+      // }
+
       await client.disconnect();
     } catch (e) {
       print(e);

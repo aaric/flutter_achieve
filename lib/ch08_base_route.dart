@@ -28,13 +28,14 @@ class _DemoPageState extends State<DemoPage> {
             Text('Goods: Ice Cream'),
             Text('Paid: $_payAmount'),
             ElevatedButton(onPressed: () async {
-              var payAmount = await Navigator.push(context, MaterialPageRoute(
+              /*var payAmount = await Navigator.push(context, MaterialPageRoute(
                   builder: (context) {
                     return NewPage(orderId: _orderId);
                   }
-              ));
+              ));*/
+              var payAmount = await Navigator.of(context).pushNamed('/new_page', arguments: _orderId);
               setState(() {
-                _payAmount = payAmount;
+                _payAmount = payAmount as String;
               });
             }, child: Text('To pay'))
           ]

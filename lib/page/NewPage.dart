@@ -15,9 +15,11 @@ class _NewPageState extends State<NewPage> {
 
   @override
   Widget build(BuildContext context) {
+    var args = ModalRoute.of(context)!.settings.arguments;
+
     return Scaffold(
         appBar: AppBar(
-            title: Text('Order Id: ${widget.orderId}')
+            title: Text('Order Id: $args')
         ),
         body: Center(
             child: Column(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class DemoPage extends StatefulWidget {
-  const DemoPage({super.key, required this.tilte});
+  const DemoPage({super.key, required this.title});
 
   final String title;
 

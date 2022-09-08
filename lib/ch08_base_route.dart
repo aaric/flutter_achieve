@@ -11,6 +11,9 @@ class DemoPage extends StatefulWidget {
 
 class _DemoPageState extends State<DemoPage> {
 
+  var _orderId = '20220908001';
+  var _payAmount = '￥ 0.00';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,15 +25,17 @@ class _DemoPageState extends State<DemoPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text('Goods: Ice Cream'),
-            Text('OrderId: 20220908001'),
+            Text('Paid: $_payAmount'),
             ElevatedButton(onPressed: () async {
               var payAmount = await Navigator.push(context, MaterialPageRoute(
                   builder: (context) {
-                    return NewPage(orderId: '20220908001');
+                    return NewPage(orderId: _orderId);
                   }
               ));
-              print('pay amount: $payAmount');
-            }, child: Text('pay money'))
+              setState(() {
+                _payAmount = payAmount;
+              });
+            }, child: Text('To pay'))
           ]
         )
       )
@@ -50,6 +55,8 @@ class NewPage extends StatefulWidget {
 
 class _NewPageState extends State<NewPage> {
 
+  var _amount = '￥ 10.00';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,10 +67,10 @@ class _NewPageState extends State<NewPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Amount: ￥ 10.00'),
+            Text('Amount: $_amount'),
             ElevatedButton(onPressed: () {
-              Navigator.pop(context, '￥ 10.00');
-            }, child: Text('back result'))
+              Navigator.pop(context, _amount);
+            }, child: Text('Paid'))
           ]
         )
       )

@@ -11,6 +11,8 @@ import 'package:wakelock/wakelock.dart';
 // import 'ch05_base_layout.dart';
 // import 'ch06_base_widget.dart';
 // import 'ch07_base_json.dart';
+import 'page/NewPage.dart';
+import 'ch08_base_route.dart';
 // import 'ex01_css_colors.dart';
 // import 'ex02_fluttertoast.dart';
 // import 'ex03_url_launcher.dart';
@@ -19,7 +21,7 @@ import 'package:wakelock/wakelock.dart';
 // import 'ex06_wakelock.dart';
 // import 'ex07_shared_preferences.dart';
 // import 'ex08_file_picker.dart';
-import 'ex09_ftpconnect.dart';
+// import 'ex09_ftpconnect.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -44,7 +46,12 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         fontFamily: 'Fira Code'
       ),
-      home: const DemoPage(title: 'Flutter Demo Home Page')
+      // home: const DemoPage(title: 'Flutter Demo Home Page')
+      initialRoute: '/',
+      routes: {
+        '/' : (context) => DemoPage(title: 'Flutter Demo Home Page'),
+        '/new_page' : (context) => NewPage(orderId: ModalRoute.of(context)!.settings.arguments as String)
+      }
     );
   }
 }

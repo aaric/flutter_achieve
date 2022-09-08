@@ -4,15 +4,13 @@
 [![Android SDK](https://img.shields.io/badge/Android_SDK-33-brightgreen.svg?style=flat&logo=android)](https://developer.android.com/docs)
 [![Android Studio](https://img.shields.io/badge/Android_Studio-2021.2.1-brightgreen.svg?style=flat&logo=android_studio)](https://developer.android.com/studio)
 [![Visual Studio](https://img.shields.io/badge/Visual_Studio-17.2-brightgreen.svg?style=flat&logo=visual_studio)](https://visualstudio.microsoft.com/)
-[![Release](https://img.shields.io/badge/Release-2.2.1-blue.svg)](https://github.com/aaric/flutter_achieve/releases)
+[![Release](https://img.shields.io/badge/Release-2.3.0-blue.svg)](https://github.com/aaric/flutter_achieve/releases)
 
 > A new Flutter project.
 
 ## 1 Flutter 社区镜像
 
-[https://pub.dev](https://pub.flutter-io.cn)
-
-### 1.1 Flutter 社区
+&emsp;&emsp;[Dart packages: https://pub.dev](https://pub.flutter-io.cn)
 
 > 社区主镜像，采用多种方式同步 Flutter 开发者资源（推荐）。有任何镜像相关的问题，请与我们[反馈镜像问题](https://github.com/cfug/flutter.cn/issues)，中国镜像存储由[七牛云](https://sensors.qiniu.com/t/n9Q)提供服务。
 
@@ -21,18 +19,9 @@ $env:PUB_HOSTED_URL = https://pub.flutter-io.cn
 $env:FLUTTER_STORAGE_BASE_URL = https://storage.flutter-io.cn
 ```
 
-### 1.2 CNNIC
-
-> 基于 TUNA 协会的镜像服务，数据策略和内容与 TUNA 一致，通过非教育网的域名访问（建议选择 TUNA）。暂无反馈渠道，可尝试 TUNA 反馈渠道。
-
-```powershell
-$env:PUB_HOSTED_URL = http://mirrors.cnnic.cn/dart-pub
-$env:FLUTTER_STORAGE_BASE_URL = http://mirrors.cnnic.cn/flutter
-```
-
 ## 2 Flutter Doctor 问题解决思路
 
-### 2.1 \[✗\] Android toolchain - develop for Android devices
+### 2.1 [✗] Android toolchain - develop for Android devices
 
 ```powershell
 # Unable to locate Android SDK.
@@ -42,7 +31,7 @@ $env:ANDROID_HOME = E:\cache_app\sdk
 flutter doctor --android-licenses
 ```
 
-### 2.2 \[✗\] Visual Studio - develop for Windows
+### 2.2 [✗] Visual Studio - develop for Windows
 
 > [Select the installation locations in Visual Studio](https://docs.microsoft.com/en-us/visualstudio/install/change-installation-locations?view=vs-2022)
 
@@ -52,7 +41,7 @@ flutter doctor --android-licenses
 .\vs_community.exe --noweb --add Microsoft.VisualStudio.Workload.NativeDesktop --includeRecommended --lang zh-CN
 ```
 
-### 2.3 \[✗\] You need Java 11 or higher to build your app with this version of Gradle.
+### 2.3 [✗] You need Java 11 or higher to build your app with this version of Gradle
 
 **`<project_dir>\\android\\gradle.properties`**
 

@@ -1,6 +1,7 @@
 import 'dart:io';
 
-import 'package:flutter/material.dart';
+// import 'package:flutter/material.dart';
+import 'package:fluent_ui/fluent_ui.dart';
 // import 'package:window_size/window_size.dart';
 import 'package:wakelock/wakelock.dart';
 
@@ -11,8 +12,8 @@ import 'package:wakelock/wakelock.dart';
 // import 'ch05_base_layout.dart';
 // import 'ch06_base_widget.dart';
 // import 'ch07_base_json.dart';
-import 'page/NewPage.dart';
-import 'ch08_base_route.dart';
+// import 'page/NewPage.dart';
+// import 'ch08_base_route.dart';
 // import 'ex01_css_colors.dart';
 // import 'ex02_fluttertoast.dart';
 // import 'ex03_url_launcher.dart';
@@ -22,6 +23,7 @@ import 'ch08_base_route.dart';
 // import 'ex07_shared_preferences.dart';
 // import 'ex08_file_picker.dart';
 // import 'ex09_ftpconnect.dart';
+import 'ex10_fluent_ui.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -40,7 +42,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    // MaterialApp
+    /*return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -52,6 +55,16 @@ class MyApp extends StatelessWidget {
         '/' : (context) => DemoPage(title: 'Flutter Demo Home Page'),
         '/new_page' : (context) => NewPage(orderId: ModalRoute.of(context)!.settings.arguments as String)
       }
-    );
+    );*/
+
+    // FluentApp
+     return FluentApp(
+       title: 'Fluent Demo',
+       theme: ThemeData(
+         accentColor: Colors.blue,
+         brightness: Brightness.light
+       ),
+       home: const DemoPage(title: 'Fluent Demo Home Page')
+     );
   }
 }
